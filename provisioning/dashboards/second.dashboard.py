@@ -1,8 +1,7 @@
 from grafanalib.core import (
     Dashboard,
-    TimeSeries,
-    Target,
     Stat,
+    Target,
     GridPos,
     Threshold,
 )
@@ -40,3 +39,4 @@ dashboard = Dashboard(
         ),
     ],
 ).auto_panel_ids()
+
