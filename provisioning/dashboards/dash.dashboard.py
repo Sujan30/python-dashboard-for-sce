@@ -1,4 +1,4 @@
-from grafanalib.core import RowPanel, TimeSeries, Target, Dashboard, Stat, GridPos,Threshold
+from grafanalib.core import RowPanel, TimeSeries, Target, Dashboard, Stat, GridPos, Threshold
 from dataclasses import dataclass
 from grafanalib.formatunits import (
     SECONDS,
@@ -57,16 +57,10 @@ class Dash:
                 refId=char_iter.Next()
             ))
         panel = [
-            Stat(
+            TimeSeries(
                 title=title,
-                reduceCalc='lastNotNull', 
-                format=SECONDS,
                 gridPos=GridPos(h=8, w=12, x=0, y=0),
-                thresholds=[
-                    Threshold('green', 0, 0.0),
-                ],
                 targets=targets
-                    
             )
         ]
         self.lastest_row.panels.extend(panel)
@@ -83,16 +77,10 @@ class Dash:
                 refId=char_iter.Next()
             ))
         panel = [
-            Stat(
+            TimeSeries(
                 title=title,
-                reduceCalc='lastNotNull', 
-                format=SECONDS,
                 gridPos=GridPos(h=8, w=12, x=0, y=0),
-                thresholds=[
-                    Threshold('green', 0, 0.0),
-                ],
                 targets=targets
-                    
             )
         ]
         
